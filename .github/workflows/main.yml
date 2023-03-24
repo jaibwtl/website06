@@ -7,6 +7,7 @@ jobs:
       - name: Checkout code 
         uses: actions/checkout@v3
       - name: Clean
+        continue-on-error: true
         run: docker stop website06 && docker rm website06 && docker rmi jaibw/website06
       - name: Build Image 
         run: docker build -t jaibw/website06 .
