@@ -1,0 +1,8 @@
+name: website06
+on: push
+jobs:
+  building-docker-image:
+    runs-on: self-hosted
+    steps:
+      - name: Check Docker
+        run: docker version 
