@@ -10,3 +10,5 @@ jobs:
         run: docker build -t jaibw/website06 .
       - name: List Image
         run: docker images
+      - name: Upload image to Docker Hub
+        run: docker push jaibw/website06
