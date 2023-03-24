@@ -12,3 +12,5 @@ jobs:
         run: docker images
       - name: Upload image to Docker Hub
         run: docker push jaibw/website06
+      - name: Deploy
+        run: docker run -d --name=website06 -p 8080:80 jaibw/website06
