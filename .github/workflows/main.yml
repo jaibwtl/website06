@@ -6,14 +6,9 @@ jobs:
     steps:
       - name: Checkout code 
         uses: actions/checkout@v3
-      - name: Clean
-        continue-on-error: true
-        run: docker stop website06 && docker rm website06 && docker rmi jaibw/website06
-      - name: Build Image 
-        run: docker build -t jaibw/website06 .
-      - name: List Image
-        run: docker images
-      - name: Upload image to Docker Hub
-        run: docker push jaibw/website06
-      - name: Deploy
-        run: docker run -d --name=website06 -p 8080:80 jaibw/website06
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: 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
+          SONAR_TOKEN: squ_9830fa78c71b6fbf5df2e33defd339c769a461f2
+          SONAR_HOST_URL: http://35.89.174.169:9000
