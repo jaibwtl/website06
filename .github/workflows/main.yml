@@ -18,3 +18,7 @@ jobs:
         run: docker stop website06 && docker rm website06 && docker rmi jaibw/website06
       - name: Build Image 
         run: docker build -t jaibw/website06 .
+      - name: kube-deploy
+        run: kubectl apply -f deployment.yaml
+      - name: list deployments
+        run: kubectl get deployments
