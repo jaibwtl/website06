@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jai-deployment
+  labels:
+    app: jai
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jai
+  template:
+    metadata:
+      labels:
+        app: jai
+    spec:
+      containers:
+      - name: web
+        image: jaibw/website06
+        ports:
+        - containerPort: 80
